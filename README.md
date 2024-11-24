@@ -1,19 +1,20 @@
 # spotify-track-tonality
-Retrieve tonality data from Spotify's current playback.
+This project retrieves tonality data from Spotify's current playback.
 
 # Building
+To build this project, please follow these steps:
 
-First, install necessary dependencies, if you don't already have them.
+### Install the following dependencies:
 
 - [libcurl](https://github.com/curl/curl)
 - [nlohmann/jsoncpp](https://github.com/nlohmann/json)
 
-Clone the repository
+### Clone the repository:
 ```
 git clone https://github.com/pasquale90/spotify-track-tonality.git
 ```
 
-And finally, build using CMake
+### Build using CMake:
 
 ```
 mkdir build
@@ -24,23 +25,25 @@ make
 
 # Usage
 
-After compilation, two independent scripts are generated:
-- `authenticateUser`: Used to enable user authentication 
+Upon successful compilation, two executables are generated:
 
-# Usage 
+- `authenticateUser`: Facilitates user authentication with Spotify.
+- `getCurrentTone` : Retrieves the tonality of the current playback.
 
-To run the app, you must:
-1. Follow the [instructions](https://developer.spotify.com/documentation/web-api) to create an app in spotify's [dashboard](https://developer.spotify.com/dashboard)
-2. Replace the values of the variables `client_id`, `client_secret`, and `redirect_uri` within the [spotify/credentials.json](spotify/credentials.json) file:
+### To use the application:
+
+1. Follow the [instructions](https://developer.spotify.com/documentation/web-api) to create a `Spotify Developer Application` using the Spotify's [dashboard](https://developer.spotify.com/dashboard).
+ 
+2. Configure credentials, by editing the [spotify/credentials.json](spotify/credentials.json) file, replacing the placeholders for `client_id`, `client_secret`, and `redirect_uri`.
 ```
 {
     "client_id": "...",
     "client_secret": "...",
-    "redirect_uri": "...",
+    "redirect_uri": "..."
 }
 ```
-3. Run `./authenticateUser` to authenticate your account for using the Spotify API.
-On first execution, paste the redirect URI into the command prompt to complete the verification process. A `refresh_token` field will be added to the [spotify/credentials.json](spotify/credentials.json) file:
+3. Run `./authenticateUser` to authenticate your account with the Spotify API.
+During the first run, you will need to accept the access request, and paste the URL you've been redirected to into the command prompt, to complete the verification process. Upon successful verification, a `refresh_token` field will be added to the [spotify/credentials.json](spotify/credentials.json) file.
 ```
 {
     "client_id": "your_client_id",
@@ -50,12 +53,12 @@ On first execution, paste the redirect URI into the command prompt to complete t
 
 }
 ```
-5. Run `./getCurrentTone` each time you want to retrieve the current playback
-3. Run `./authenticateUser` to authenticate your account for using the Spotify API
+4. Run `./getCurrentTone` each time you want to retrieve the tonality of the current playing track.
 
 # Credits
-It ought to be mentioned that this repo is based on work from [smaltby/spotify-api-plusplus](https://github.com/smaltby/spotify-api-plusplus) as a basis for its work.
+Please note, this repository selectively adapts elements the foundational work of [smaltby/spotify-api-plusplus](https://github.com/smaltby/spotify-api-plusplus).
 
 ## Todo
- - [] prevent bugs when ads are playing
- - [] add kms features
+ - []  Implement bug prevention when ads are playing.
+
+ - [] Add additional features (e.g., KMS integration).
