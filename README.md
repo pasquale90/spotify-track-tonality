@@ -61,4 +61,4 @@ Please note, this repository selectively adapts elements the foundational work o
 ## Todo
  - []  Implement bug prevention when ads are playing.
 
- - [] Add additional features (e.g., KMS integration).
+ - [] Add KMS features
