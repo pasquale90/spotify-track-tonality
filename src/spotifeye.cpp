@@ -259,13 +259,19 @@ bool Spotifeye::getCurrentPlayback(const std::string& accessToken, std::vector<s
             }
             
             playback[1] = track["name"];
-            
+            std::cout<<"artist "<<playback[0]<<std::endl;
+            std::cout<<"track "<<playback[1]<<std::endl;
+
             // ... (Extract other features)
-            return getAudioFeatures(accessToken, track["id"], playback);
-        }    
+            if(!getAudioFeatures(accessToken, track["id"], playback)){
+                std::cout<<"Irrelevant track/addvertisment"<<std::endl;
+                return false;
+            }
+            return true;
+        }
     }
     
-    // "No playback information available
+    std::cout<<"No track is currently playing"<<std::endl;
     return false;
 
 }

@@ -17,7 +17,7 @@ int main(){
         std::cout<<"\tKey:"<<result[2]<<std::endl;
         std::cout<<"\tMode:"<<result[3]<<std::endl;
     } else{
-        std::cout<<"No track is currently playing"<<std::endl;
+        std::cout<<"No playback information available"<<std::endl;
     }
     
     
