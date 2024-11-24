@@ -59,6 +59,6 @@ During the first run, you will need to accept the access request, and paste the 
 Please note, this repository selectively adapts elements the foundational work of [smaltby/spotify-api-plusplus](https://github.com/smaltby/spotify-api-plusplus).
 
 ## Todo
- - []  Implement bug prevention when ads are playing.
+ - [x]  Implement bug prevention when ads are playing.
 
  - [] Add KMS features
