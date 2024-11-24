@@ -42,6 +42,13 @@ Upon successful compilation, two executables are generated:
     "redirect_uri": "..."
 }
 ```
+##### `hint`
+```
+{
+    "redirect_uri_example": "http://localhost/8080/callback"
+}
+```
+
 3. Run `./authenticateUser` to authenticate your account with the Spotify API.
 During the first run, you will need to accept the access request, and paste the URL you've been redirected to into the command prompt, to complete the verification process. Upon successful verification, a `refresh_token` field will be added to the [spotify/credentials.json](spotify/credentials.json) file.
 ```
@@ -50,7 +57,6 @@ During the first run, you will need to accept the access request, and paste the 
     "client_secret": "your_client_secret",
     "redirect_uri": "your_redirect_uri",
     "refresh_token": "your_refresh_token"
-
 }
 ```
 4. Run `./getCurrentTone` each time you want to retrieve the tonality of the current playing track.
