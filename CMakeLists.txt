@@ -1,11 +1,33 @@
 cmake_minimum_required(VERSION 3.10)
 project(spotify-track-tonality)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -pedantic -Wall -Wextra -Wno-error")
 
-find_package(PythonLibs REQUIRED)
-include_directories(${PYTHON_INCLUDE_DIRS})
+set(LIBRARIES
+    jsoncpp
+    curl
+)
 
-add_executable(getCurrentTone main.cpp)
-target_include_directories(getCurrentTone PRIVATE ${PYTHON_LIBRARIES})
-target_link_libraries(getCurrentTone ${PYTHON_LIBRARIES})
+set (SOURCES_1
+    src/main.cpp
+    src/spotifeye.cpp
+    # src/Error.cpp
+)
+
+set (SOURCES_2
+    src/spotifeye.cpp
+    src/authorize.cpp
+    # src/Error.cpp
+)
+
+set(INCLUDE_DIRECTORIES
+    include
+)
+
+add_executable(getCurrentTone ${SOURCES_1})
+target_include_directories(getCurrentTone PRIVATE ${INCLUDE_DIRECTORIES})
+target_link_libraries(getCurrentTone ${LIBRARIES})
+
+add_executable(authorizeUser ${SOURCES_2})
+target_include_directories(authorizeUser PRIVATE ${INCLUDE_DIRECTORIES})
+target_link_libraries(authorizeUser ${LIBRARIES})
