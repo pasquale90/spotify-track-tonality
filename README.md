@@ -23,6 +23,15 @@ cmake ..
 make
 ```
 
+### Docker
+
+Alternatively you may use Docker to build and run the application:
+
+```
+docker build -t spotify-track-tonality:v1 .
+docker run -it <image_id> /bin/bash
+```
+
 # Usage
 
 Upon successful compilation, two executables are generated:
